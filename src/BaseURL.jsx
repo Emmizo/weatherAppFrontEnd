@@ -1,2 +1,2 @@
-const BaseURL = "http://localhost:8000/api/";
+const BaseURL = "https://weather.alicus.rw/weatherApp/public/api/";
 export default BaseURL;

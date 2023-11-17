@@ -1,24 +1,22 @@
-import React, { useContext, useEffect } from "react";
-import { Navigate, Link ,useNavigate} from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { ThemeContext } from "../Theme";
 import { AuthContext } from "../auth/AuthContext";
+import dark from "../theme/dark.png";
+import light from "../theme/light.png";
 
 export default function Navbar() {
-  // const [loggedIn, setLoggedIn] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const {isAuthenticated,UnTrigger }= useContext(AuthContext);
+  const { isAuthenticated, UnTrigger } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    UnTrigger()
-   navigate("/");
-  
+    UnTrigger();
+    navigate("/");
   };
-
-  
 
   console.log({ isAuthenticated });
 
@@ -32,7 +30,18 @@ export default function Navbar() {
           <ul>
             <li>
               <div className="header-toggle-buttons">
-                <button onClick={() => toggleTheme()}>{theme}</button>
+                <button onClick={() => toggleTheme()}>
+                  {theme === "light-theme" ? (
+                    <img src={dark} alter="light" width="30" />
+                  ) : (
+                    <img
+                      src={light}
+                      alter="light"
+                      width="30"
+                      className="bg-white"
+                    />
+                  )}
+                </button>
               </div>
             </li>
             <li>

@@ -19,10 +19,8 @@ const ThemeProvider = ({ children }) => {
   function toggleTheme() {
     if (theme === "dark-theme") {
       setTheme("light-theme");
-      console.log(theme);
     } else {
       setTheme("dark-theme");
-      console.log(theme);
     }
   }
 
