@@ -1,0 +1,16 @@
+ul {
+  display: flex;
+}
+li {
+  list-style-type: none;
+  padding: 10px;
+}
+a {
+  text-decoration: none;
+}
+.navbar a {
+  color: #fff;
+}
+.navbar .log {
+  font-weight: 400;
+}
