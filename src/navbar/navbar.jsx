@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { ThemeContext } from "../Theme";
 import { AuthContext } from "../auth/AuthContext";
-import dark from "../theme/dark.png";
-import light from "../theme/light.png";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { CiSun } from "react-icons/ci";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -18,28 +18,21 @@ export default function Navbar() {
     navigate("/");
   };
 
-  console.log({ isAuthenticated });
-
   return (
     <div>
-      <div id="main-navbar" className="navbar">
+      <div id="main-navbar" className="navbar p-2">
         <h2 className="logo">
           <Link to="/">Weather App</Link>
         </h2>
         <nav>
-          <ul>
+          <ul className="flex flex-row items-center">
             <li>
-              <div className="header-toggle-buttons">
+              <div className="">
                 <button onClick={() => toggleTheme()}>
                   {theme === "light-theme" ? (
-                    <img src={dark} alter="light" width="30" />
+                    <CiSun size={30} />
                   ) : (
-                    <img
-                      src={light}
-                      alter="light"
-                      width="30"
-                      className="bg-white"
-                    />
+                    <MdOutlineDarkMode size={30} />
                   )}
                 </button>
               </div>
